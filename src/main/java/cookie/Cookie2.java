@@ -1,0 +1,38 @@
+package cookie;
+
+import java.io.IOException;
+import java.net.URLDecoder;
+import java.nio.charset.StandardCharsets;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+/**
+ * Servlet implementation class Cookies
+ */
+@WebServlet("/cookie/2")
+public class Cookie2 extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+       
+  
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		
+		Cookie[] cookies = request.getCookies();
+//		List<Cookie> cookieList = Arrays.asList(cookies); 바꿔서 만들어보기
+		
+		for(Cookie c : cookies) {
+			System.out.println("key: " + c.getName());
+			System.out.println("value: " + URLDecoder.decode(c.getValue(), StandardCharsets.UTF_8));
+	
+			//쿠키는 무조건 String 값만 저장
+			//쿠키에는 띄어쓰기를 넣으면 안된다.
+		}
+	}
+
+}
+
