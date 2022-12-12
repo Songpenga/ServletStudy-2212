@@ -7,10 +7,9 @@
 <title>Insert title here</title>
 </head>
 <body>
-<h1> 이름 : <%=request.getAttribute("name") %></h1>
-<h1> 이름2 : ${name }</h1> 
-
+			
+	<h1>이름: <%=request.getAttribute("name") %></h1>
+	<h1>이름2: ${name}</h1>
+	
 </body>
 </html>
-<%-- 11 번 문단 EL 표현식 --%>
-

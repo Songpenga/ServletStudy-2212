@@ -8,24 +8,19 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-/**
- * Servlet implementation class Session1
- */
-@WebServlet("/Session/2")
+
+@WebServlet("/session/2")
 public class Session2 extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
- 
-
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
 		HttpSession session = request.getSession();
 		
 		System.out.println(session.getAttribute("user_name"));
 		System.out.println(session.getAttribute("user_phone"));
 		System.out.println(session.getAttribute("user_email"));
 		System.out.println(session.getAttribute("user_address"));
-		System.out.println(session.getAttribute("user_pw"));
+		System.out.println(session.getAttribute("user_password"));
 		
 		request.getRequestDispatcher("/WEB-INF/form1.html").forward(request, response);
 	}
@@ -37,9 +32,8 @@ public class Session2 extends HttpServlet {
 		session.setAttribute("user_name", request.getParameter("name"));
 		session.setAttribute("user_phone", request.getParameter("phone"));
 		session.setAttribute("user_email", request.getParameter("email"));
-		session.setAttribute("user_address", request.getParameter("address"));
-		session.setAttribute("user_pw", request.getParameter("pw"));
-	
+		session.setAttribute("user_address", request.getParameter("addresss"));
+		session.setAttribute("user_password", request.getParameter("pw"));
 	}
 
 }
