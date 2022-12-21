@@ -3,6 +3,8 @@ package cookie;
 import java.io.IOException;
 import java.net.URLDecoder;
 import java.nio.charset.StandardCharsets;
+import java.util.Arrays;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -20,15 +22,14 @@ public class Cookie2 extends HttpServlet {
        
   
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		
+				
 		Cookie[] cookies = request.getCookies();
+	
 //		List<Cookie> cookieList = Arrays.asList(cookies); 바꿔서 만들어보기
 		
 		for(Cookie c : cookies) {
-			System.out.println("key: " + c.getName());
-			System.out.println("value: " + URLDecoder.decode(c.getValue(), StandardCharsets.UTF_8));
-	
+			System.out.println("key : " + c.getName());
+			System.out.println("value : " + URLDecoder.decode(c.getValue(), StandardCharsets.UTF_8));
 			//쿠키는 무조건 String 값만 저장
 			//쿠키에는 띄어쓰기를 넣으면 안된다.
 		}

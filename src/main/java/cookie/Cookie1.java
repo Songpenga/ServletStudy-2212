@@ -22,25 +22,17 @@ public class Cookie1 extends HttpServlet {
        
   
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-		Cookie cookie = new Cookie("data1", "쿸키저장");
-		cookie.setMaxAge(60*60);
-		//1시간 단위로 저장
 		
-		Cookie cookie2 = new Cookie("data2", URLEncoder.encode("쿸 키 저 장 22", java.nio.charset.StandardCharsets.UTF_8));
-	
+		Cookie cookie = new Cookie("data1", "쿠키저장!!");
+		cookie.setMaxAge(60*60);
+		
+		Cookie cookie2 = new Cookie("data2", URLDecoder.decode("데이터 하나 더 추가!!", "utf-8"));
 		
 		response.addCookie(cookie);
 		response.addCookie(cookie2);
 		
-		
 	}
 
-
-	private String StandardCharsets(String string) {
-		// TODO Auto-generated method stub
-		return null;
-	}
 
 }
 

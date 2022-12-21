@@ -14,6 +14,7 @@ public class Session1 extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
 		HttpSession session = request.getSession();
 		
 		System.out.println(session.getAttribute("user_name"));
@@ -34,6 +35,8 @@ public class Session1 extends HttpServlet {
 		session.setAttribute("user_email", request.getParameter("email"));
 		session.setAttribute("user_address", request.getParameter("addresss"));
 		session.setAttribute("user_password", request.getParameter("pw"));
+		
+	//	request.getRequestDispatcher("/WEB-INF/form1.html").forward(request, response);
 	}
 
 }

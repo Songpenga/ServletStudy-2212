@@ -26,14 +26,7 @@ public class Session2 extends HttpServlet {
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.setCharacterEncoding("UTF-8");
-		HttpSession session = request.getSession();
 		
-		session.setAttribute("user_name", request.getParameter("name"));
-		session.setAttribute("user_phone", request.getParameter("phone"));
-		session.setAttribute("user_email", request.getParameter("email"));
-		session.setAttribute("user_address", request.getParameter("addresss"));
-		session.setAttribute("user_password", request.getParameter("pw"));
 	}
 
 }
