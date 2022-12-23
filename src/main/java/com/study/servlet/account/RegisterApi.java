@@ -2,6 +2,8 @@ package com.study.servlet.account;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.Arrays;
+import java.util.List;
 import java.util.Map;
 
 import javax.servlet.ServletException;
@@ -9,6 +11,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.study.domain.User;
 import com.study.domain.User.UserBuilder;
@@ -35,15 +38,18 @@ public class RegisterApi extends HttpServlet {
 					.password(registerParams.get("password"))
 					.name(registerParams.get("name"))
 					.email(registerParams.get("email"))
+					.roles("ROLE_USER, ROLE_ADMIN") // 권한부여
 					.build();
 			
 			//UserRepository.getInstance().saveUser(user);
 			accountService.register(user);
 			
 			UserRepository.getInstance().showUserAll(); // 가입한 회원 정보 콘솔에서 확인
-		
+
 			response.sendRedirect("/login");
 		}
+		
+	
 	}
 
 }
